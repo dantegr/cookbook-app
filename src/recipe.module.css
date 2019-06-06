@@ -6,12 +6,15 @@
   flex-direction: column;
   justify-content: space-around;
   background: white;
-  align-items: center;
-  min-width: 40%;
+  width: 60rem;
+  padding: 5px 20px 5px 20px;
 }
 
 .image {
    border-radius: 50%;
    width: 100px;
    height: 100px;
+   float: right;
+   clear: right;
 }
+

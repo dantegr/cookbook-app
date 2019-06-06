@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Recipe from './components/Recipe';
+import Header from './components/Header';
 import './App.css';
 
 const App = () => {
@@ -10,7 +11,7 @@ const App = () => {
 
   const [recipes, setRecipes ] = useState([]);
   const [search, setSearch] = useState("");
-  const [query, setQuery] = useState ('chicken');
+  const [query, setQuery] = useState ('');
 
 
   useEffect(()=> {
@@ -37,22 +38,25 @@ const App = () => {
 
   return (
     <div className="App">
-      <form onSubmit={getSearch} className="search-form">
-        <input className="search-bar" type="text" value={search} onChange={updateSearch} />
-        <button className="search-button" type="submit">Search</button>
-      </form>
-      <div className="recipes">
-      {recipes.map(recipe => (
-        <Recipe
-          key={recipe.recipe.label} 
-          title={recipe.recipe.label} 
-          calories={recipe.recipe.calories} 
-          image ={recipe.recipe.image}
-          ingredients={recipe.recipe.ingredients}
-        />
-      ))}
+      <div className="container">
+        <Header  subtitle='Type an ingredient to find a recipe with it.'/>
+        <form onSubmit={getSearch} className="search-form">
+          <input className="search-bar" type="text" value={search} onChange={updateSearch} />
+          <button className="search-button" type="submit">Search</button>
+        </form>
+        <div className="recipes">
+        {recipes.map(recipe => (
+          <Recipe
+            key={recipe.recipe.label} 
+            title={recipe.recipe.label} 
+            calories={recipe.recipe.calories} 
+            image ={recipe.recipe.image}
+            ingredients={recipe.recipe.ingredients}
+          />
+        ))}
+        </div>
       </div>
-    </div>
+    </div> 
   );
 }
 

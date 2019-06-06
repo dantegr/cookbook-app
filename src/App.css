@@ -28,3 +28,10 @@
   justify-content: space-around;
   flex-wrap: wrap;
 }
+
+.container {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 0 1.6rem;
+  
+}
